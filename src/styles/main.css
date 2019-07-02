@@ -1,0 +1,16 @@
+.width-100 { width: 100% }
+.height-100 { height: 100% }
+
+/** Attributes **/
+.nowrap { white-space: nowrap; }
+.ellipsis { text-overflow: ellipsis; }
+.resizable { resize: both; overflow: auto; }
+.c-hand { cursor: pointer; }
+
+/** Grid **/
+.grid { display: grid; }
+
+.columns-3 { grid-template-columns: repeat(3, 1fr); }
+.columns-4 { grid-template-columns: repeat(4, 1fr); }
+.columns-5 { grid-template-columns: repeat(5, 1fr); }
+.columns-6 { grid-template-columns: repeat(6, 1fr); }
