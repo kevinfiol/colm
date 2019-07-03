@@ -1,42 +1,27 @@
 .grid {
-  background: #DDD;
-  max-width: 1200px;
+  position: relative;
 }
-
-/* clear fix */
-.grid:after {
-  content: '';
+.item {
   display: block;
-  clear: both;
-}
-
-/* ---- .grid-item ---- */
-
-.grid-item {
-  float: left;
+  position: absolute;
   width: 100px;
   height: 100px;
-  background: #C09;
-  border: 2px solid hsla(0, 0%, 0%, 0.5);
+  margin: 5px;
+  z-index: 1;
+  background: #000;
+  color: #fff;
 }
-
-.grid-item--width2 { width: 200px; }
-.grid-item--height2 { height: 200px; }
-
-.grid-item:hover {
-  border-color: hsla(0, 0%, 100%, 0.5);
-  cursor: move;
+.item.muuri-item-dragging {
+  z-index: 3;
 }
-
-.grid-item.is-dragging,
-.grid-item.is-positioning-post-drag {
-  background: #C90;
+.item.muuri-item-releasing {
   z-index: 2;
 }
-
-.packery-drop-placeholder {
-  outline: 3px dashed hsla(0, 0%, 0%, 0.5);
-  outline-offset: -6px;
-  -webkit-transition: -webkit-transform 0.2s;
-          transition: transform 0.2s;
+.item.muuri-item-hidden {
+  z-index: 0;
+}
+.item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }

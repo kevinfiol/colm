@@ -3,8 +3,7 @@ import './styles/grid.css';
 import './styles/main.css';
 
 import m from 'mithril';
-import Packery from 'packery';
-import Draggabilly from 'draggabilly';
+import Muuri from 'muuri';
 import { state, actions } from './state';
 
 import Controls from './components/Controls';
@@ -16,32 +15,20 @@ import GridItem from './components/Grid/GridItem';
 
 const App = {
     view: ({ attrs: { state, actions } }) =>
-        m('div.flex.items-center.width-100.height-100',
-            
+        m('div.width-100.height-100',
             m(Controls, { state, actions }),
 
-            // m('div.grid', { oncreate: ({ dom }) => new Muuri(dom) }, 'test'),
-
-            m(GridContainer, {
-                oncreate: ({ dom }) => {
-                    const packery = new Packery(dom, {
-                        itemSelector: '.grid-item',
-                        columnWidth: 100
-                    });
-
-                    packery.getItemElements().forEach(el => {
-                        const draggie = new Draggabilly(el);
-                        packery.bindDraggabillyEvents(draggie);
-                    });
-                }
-            },
-                m('div.grid-item', 'one'),
-                m('div.grid-item', 'one'),
-                m('div.grid-item', 'one'),
-                m('div.grid-item', 'one'),
-                m('div.grid-item', 'one'),
-                m('div.grid-item', 'one'),
-            ),
+            m('div.bg-green',
+                m(GridContainer, { oncreate: ({ dom }) => new Muuri(dom, { dragEnabled: true }) },
+                    m(GridItem, 'one'),
+                    m(GridItem, 'two'),
+                    m(GridItem, 'three'),
+                    m(GridItem, 'four'),
+                    m(GridItem, 'five'),
+                    m(GridItem, 'six'),
+                    m(GridItem, 'seven')
+                )
+            )
 
             // Container
             // m('div.flex.border.mx-auto.grid.columns-4.mt4',
