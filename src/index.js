@@ -1,59 +1,100 @@
 import 'ace-css/css/ace.min.css';
-import './styles/grid.css';
+import './styles/dragula.css';
+import './styles/animate.css';
+import './styles/checkbox.css';
 import './styles/main.css';
 
 import m from 'mithril';
-import Muuri from 'muuri';
+import Document from './services/Document';
+import BrowserStorage from './services/BrowserStorage';
+import Markdown from './services/Markdown';
 import { state, actions } from './state';
 
-import Controls from './components/Controls';
-import Tile from './components/Tile';
-import EditTile from './components/EditTile';
+import Modal from './components/Modal';
+import Controls from './components/Colm/Controls';
+import Notification from './components/Colm/Notification';
+import Options from './components/Colm/Options';
 
-import GridContainer from './components/Grid/GridContainer';
-import GridItem from './components/Grid/GridItem';
+import ColumnContainer from './components/Colm/ColumnContainer';
+import Column from './components/Colm/Column';
+import EditContainer from './components/Colm/EditContainer';
+import EditColumn from './components/Colm/EditColumn';
 
-const App = {
+const Colm = {
     view: ({ attrs: { state, actions } }) =>
-        m('div.width-100.height-100',
+        m('div.flex.items-center.width-100.height-100', {
+            style: { backgroundColor: state.options.bgColor }
+        },
             m(Controls, { state, actions }),
 
-            m('div.bg-green',
-                m(GridContainer, { oncreate: ({ dom }) => new Muuri(dom, { dragEnabled: true }) },
-                    m(GridItem, 'one'),
-                    m(GridItem, 'two'),
-                    m(GridItem, 'three'),
-                    m(GridItem, 'four'),
-                    m(GridItem, 'five'),
-                    m(GridItem, 'six'),
-                    m(GridItem, 'seven')
+            state.editMode &&
+                m(Notification,
+                    'click and drag to reorder columns while in edit mode.'
                 )
-            )
+            ,
 
-            // Container
-            // m('div.flex.border.mx-auto.grid.columns-4.mt4',
-            //     state.editMode &&
-            //         state.temp.map((content, index) =>
-            //             m(EditTile, {
-            //                 key: content,
-            //                 deleteColumn: () => actions.deleteColumn(index),
-            //                 index,
-            //                 content,
-            //             })
-            //         )
-            //     ,
+            !state.editMode &&
+                m(ColumnContainer, {
+                    width: state.options.width,
+                    height: state.options.height,
+                    fontColor: state.options.fontColor
+                },
+                    state.columns.map(({ key, content }) =>
+                        m(Column, { key }, Markdown.render(content))
+                    )
+                )
+            ,
 
-            //     !state.editMode &&
-            //         state.columns.map((content, index) =>
-            //             m(Tile, {
-            //                 key: content,
-            //                 index,
-            //                 content
-            //             })
-            //         )
-            //     ,
-            // )
+            state.editMode &&
+                m(EditContainer, { state, actions },
+                    state.temp.map(({ key, content }, index) =>
+                        m(EditColumn, {
+                            key,
+                            index,
+                            content,
+                            saveColumn: content => actions.editTempColumn(index, content),
+                            deleteColumn: () => actions.deleteTempColumn(index)
+                        })
+                    )
+                )
+            ,
+
+            state.showOptions &&
+                m(Modal,
+                    m(Options, { state, actions })
+                )
+            ,
         )
+};
+
+const App = {
+    oninit: ({ attrs: { state, actions } }) => {
+        // Document.setStyle('body', 'backgroundColor', state.options.bgColor);
+
+        BrowserStorage.getAll()
+            .then(obj => {
+                if (Object.keys(obj) < 1) {
+                    actions.setDefaults();
+
+                    BrowserStorage.saveToStorage({
+                        columns: state.columns,
+                        options: state.options
+                    });
+                } else {
+                    actions.loadFromObject(obj);
+                }
+            })
+            .finally(() => {
+                actions.setIsLoaded(true);
+                m.redraw();
+            })
+        ;
+    },
+
+    view: ({ attrs: { state, actions } }) => {
+        // console.log(state);
+        return state.isLoaded && m(Colm, { state, actions });
+    }
 };
 
 m.mount(document.getElementById('app'), {

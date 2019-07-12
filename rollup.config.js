@@ -27,6 +27,7 @@ const config = {
         nodeResolve(),
         commonjs(),
         buble({
+            objectAssign: 'Object.assign',
             transforms: { dangerousTaggedTemplateString: true }
         }),
 

@@ -1,13 +1,28 @@
 import m from 'mithril';
+import { clone } from 'ramda';
 import Actions from './Actions';
+import NanoID from '../services/NanoID';
 
 const state = {
+    isLoaded: false,
     showOptions: false,
     editMode: false,
-    columns: ['one', 'two', 'three', 'four'],
-    temp: []
+
+    columns: [],
+    temp: [],
+
+    // User Settings
+    options: {
+        autohideMenu: false,
+        width: '80',
+        height: '100',
+        bgColor: '#111111',
+        fontColor: '#ffffff',
+        customCss: ''
+    }
 };
 
-const actions = Actions(state);
+const deps = { NanoID: NanoID(11), clone };
+const actions = Actions(state, deps);
 
 export { state, actions };
