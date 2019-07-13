@@ -1,14 +1,20 @@
 import m from 'mithril';
+import b from 'bss';
 import Btn from '../Btn';
 import BrowserStorage from '../../services/BrowserStorage';
 
-const StyledControls =
-    'div.p1.z3.fixed.right-0.top-0.white'
+const StyledControls = autohideMenu =>
+    'div.p1.z3.fixed.right-0.top-0.white' +
+    b`
+        opacity ${autohideMenu ? '0' : '100'}
+    `.$hover`
+        opacity 100
+    `
 ;
 
 const Controls = {
     view: ({ attrs: { state, actions } }) =>
-        m(StyledControls,
+        m(StyledControls(state.options.autohideMenu),
             m(Btn, { onclick: () => actions.setShowOptions(true) }, 'Show Options'),
 
             state.editMode && [

@@ -7,6 +7,7 @@ import ColorPicker from '../ColorPicker';
 import Editor from '../Editor';
 import Checkbox from '../Checkbox';
 import FileImport from './FileImport';
+import LocalImages from './LocalImages';
 
 const Options = () => {
     let options;
@@ -84,6 +85,9 @@ const Options = () => {
 
                 m('h3', 'Import / Export Settings'),
                 m(FileImport, { state, actions }),
+
+                m('h3', 'Local Images'),
+                m(LocalImages, { state, actions }),
 
                 m('hr'),
 

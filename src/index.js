@@ -1,7 +1,5 @@
 import 'ace-css/css/ace.min.css';
-import './styles/dragula.css';
 import './styles/animate.css';
-import './styles/checkbox.css';
 import './styles/main.css';
 
 import m from 'mithril';
@@ -29,7 +27,7 @@ const Colm = {
 
             state.editMode &&
                 m(Notification,
-                    'click and drag to reorder columns while in edit mode.'
+                    'Click and drag to reorder columns while in edit mode.'
                 )
             ,
 
@@ -69,8 +67,6 @@ const Colm = {
 
 const App = {
     oninit: ({ attrs: { state, actions } }) => {
-        // Document.setStyle('body', 'backgroundColor', state.options.bgColor);
-
         BrowserStorage.getAll()
             .then(obj => {
                 if (Object.keys(obj) < 1) {
@@ -92,7 +88,6 @@ const App = {
     },
 
     view: ({ attrs: { state, actions } }) => {
-        // console.log(state);
         return state.isLoaded && m(Colm, { state, actions });
     }
 };

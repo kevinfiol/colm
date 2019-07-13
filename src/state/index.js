@@ -10,6 +10,7 @@ const state = {
 
     columns: [],
     temp: [],
+    files: {},
 
     // User Settings
     options: {

@@ -21,10 +21,20 @@ const FileInput = () => {
             };
         },
 
-        view: ({ attrs: { onLoad } }) =>
+        view: ({ attrs: { onLoad, dataType, checkValid } }) =>
             m(StyledInput, {
                 type: 'file',
-                oninput: ev => io.readAsText(ev.target.files[0])
+                oninput: ev => {
+                    const file = ev.target.files[0];
+                    const isValid = checkValid ? checkValid(file) : true;
+
+                    if (isValid) {
+                        if (dataType === 'dataURL')
+                            io.readAsDataURL(file);
+                        else
+                            io.readAsText(file);
+                    }
+                }
             })
     };
 };

@@ -34,10 +34,12 @@ const Actions = (state, deps) => ({
     },
 
     /**
-     * User Options
+     * Batch State Changes
      */
     loadFromObject: obj => {
-        state.columns = [...obj.columns];
+        state.columns = deps.clone(obj.columns);
+        state.files = deps.clone(obj.files);
+
         state.options.autohideMenu = obj.options.autohideMenu;
         state.options.width = obj.options.width;
         state.options.height = obj.options.height;
@@ -48,6 +50,8 @@ const Actions = (state, deps) => ({
 
     setDefaults: () => {
         state.columns = [];
+        state.files = {};
+
         state.options.autohideMenu = false;
         state.options.width = '80';
         state.options.height = '100';
@@ -55,7 +59,10 @@ const Actions = (state, deps) => ({
         state.options.fontColor = '#ffffff';
         state.options.customCss = '';
     },
-
+    
+    /**
+     * User Options
+     */
     setWidth: width => {
         state.options.width = width;
     },
@@ -78,6 +85,14 @@ const Actions = (state, deps) => ({
 
     setAutohideMenu: autohideMenu => {
         state.options.autohideMenu = autohideMenu;
+    },
+
+    setLocalFile: (key, file) => {
+        state.files[key] = file;
+    },
+
+    removeLocalFile: key => {
+        delete state.files[key];
     }
 });
 
