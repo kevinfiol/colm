@@ -16,8 +16,6 @@ const Options = () => {
 
     return {
         oninit: ({ attrs: { state, actions } }) => {
-            BrowserStorage.getAll().then(console.log);
-
             options = {...state.options};
 
             saveChanges = () => {
@@ -33,7 +31,6 @@ const Options = () => {
                 Document.setInnerText('#colm-custom-styles', options.customCss);
 
                 // Save To Storage
-                // BrowserStorage.clearData();
                 BrowserStorage.saveToStorage({ options });
             };
 

@@ -2,7 +2,7 @@ import m from 'mithril';
 import b from 'bss';
 
 const StyledContainer = (width, height, fontColor) =>
-    'div.container.mx-auto.flex.justify-center.items-center' +
+    'div.column-container.mx-auto.flex.justify-center.items-center' +
     b`
         min-width 720px
         width ${width}%

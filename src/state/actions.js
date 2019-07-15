@@ -26,7 +26,6 @@ const Actions = (state, deps) => ({
     addTempColumn: () => {
         const column = { key: deps.NanoID.gen(), content: '' };
         state.temp.push(column);
-        console.log(state);
     },
 
     deleteTempColumn: index => {
@@ -38,7 +37,7 @@ const Actions = (state, deps) => ({
      */
     loadFromObject: obj => {
         state.columns = deps.clone(obj.columns);
-        state.files = deps.clone(obj.files);
+        state.files = obj.files ? deps.clone(obj.files) : {};
 
         state.options.autohideMenu = obj.options.autohideMenu;
         state.options.width = obj.options.width;
@@ -49,15 +48,11 @@ const Actions = (state, deps) => ({
     },
 
     setDefaults: () => {
-        state.columns = [];
+        state.columns = deps.clone(deps.defaults.columns);
+        state.options = deps.clone(deps.defaults.options);
         state.files = {};
 
-        state.options.autohideMenu = false;
-        state.options.width = '80';
-        state.options.height = '100';
-        state.options.bgColor = '#111111';
-        state.options.fontColor = '#ffffff';
-        state.options.customCss = '';
+        Document.setInnerText('#colm-custom-styles', state.options.customCss);
     },
     
     /**

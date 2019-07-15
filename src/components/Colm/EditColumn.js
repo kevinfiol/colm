@@ -5,10 +5,10 @@ import Modal from '../Modal';
 import Editor from '../Editor';
 
 const StyledColumn =
-    'div.fade-in.draggable.border.rounded.c-grab.white.overflow-hidden.mx1' +
+    'div.fade-in.draggable.border.rounded.c-grab.white.overflow-hidden.mx1.p2' +
     b`
         height 10em
-        max-width 20em
+        max-width 35em
     `
 ;
 
@@ -35,20 +35,28 @@ const EditColumn = () => {
                             saveColumn(content);
                             isEditing = false;
                         }
-                    }, 'save'),
+                    }, 'Save'),
 
                     m(Btn, {
                         onclick: () => {
                             editorContent = content;
                             isEditing = false;
                         }
-                    }, 'cancel')
+                    }, 'Cancel')
                 )
                 :
                 m(StyledColumn, { 'data-index': index },
-                    m(Btn, { onclick: () => isEditing = true }, 'edit'),
-                    m(Btn, { onclick: deleteColumn }, 'delete'),
-                    m('span', content)
+                    m('div.flex.justify-between',
+                        m('div.left.truncate',
+                            m(Btn, { onclick: () => isEditing = true }, 'Edit')
+                        ),
+
+                        m('div.right.truncate',
+                            m(Btn, { onclick: deleteColumn }, 'Delete')
+                        )
+                    ),
+
+                    m('h3.py1.truncate.overflow-hidden', { style: { maxWidth: '8em' } }, content),
                 )
             ,
     };

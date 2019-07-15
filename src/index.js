@@ -9,10 +9,11 @@ import Markdown from './services/Markdown';
 import { state, actions } from './state';
 
 import Modal from './components/Modal';
+import Btn from './components/Btn';
+
 import Controls from './components/Colm/Controls';
 import Notification from './components/Colm/Notification';
 import Options from './components/Colm/Options';
-
 import ColumnContainer from './components/Colm/ColumnContainer';
 import Column from './components/Colm/Column';
 import EditContainer from './components/Colm/EditContainer';
@@ -26,8 +27,14 @@ const Colm = {
             m(Controls, { state, actions }),
 
             state.editMode &&
-                m(Notification,
-                    'Click and drag to reorder columns while in edit mode.'
+                m('div',
+                    m(Notification,
+                        m('span.py4', 'Click and drag to reorder columns while in edit mode.'),
+
+                        state.temp.length < 10 &&
+                            m(Btn, { className: 'mt2', onclick: actions.addTempColumn }, 'Add Column')
+                        ,
+                    )
                 )
             ,
 
@@ -74,6 +81,7 @@ const App = {
 
                     BrowserStorage.saveToStorage({
                         columns: state.columns,
+                        files: state.files,
                         options: state.options
                     });
                 } else {
@@ -81,6 +89,7 @@ const App = {
                 }
             })
             .finally(() => {
+                Document.setInnerText('#colm-custom-styles', state.options.customCss);
                 actions.setIsLoaded(true);
                 m.redraw();
             })

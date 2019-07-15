@@ -15,11 +15,7 @@ const StyledControls = autohideMenu =>
 const Controls = {
     view: ({ attrs: { state, actions } }) =>
         m(StyledControls(state.options.autohideMenu),
-            m(Btn, { onclick: () => actions.setShowOptions(true) }, 'Show Options'),
-
             state.editMode && [
-                m(Btn, { onclick: actions.addTempColumn }, 'Add Column'),
-
                 m(Btn, {
                     onclick: () => {
                         actions.setColumns(state.temp);
@@ -36,13 +32,16 @@ const Controls = {
                 }, 'Cancel')
             ],
 
-            !state.editMode &&
+            !state.editMode && [
+                m(Btn, { onclick: () => actions.setShowOptions(true) }, 'Show Options'),
+
                 m(Btn, {
                     onclick: () => {
                         actions.setTemp(state.columns);
                         actions.setEditMode(true);
                     }
                 }, 'Edit Mode')
+            ]
         )
 };
 
