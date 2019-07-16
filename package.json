@@ -1,7 +1,7 @@
 {
   "name": "colm",
-  "version": "3.0.0",
-  "description": "firefox new tab",
+  "version": "2.0.0",
+  "description": "Replaces new tab with Markdown-powered columns",
   "main": "src/index.js",
   "repository": "git@github.com:kevinfiol/colm.git",
   "author": "'keb' <keb@protonmail.com>",
@@ -14,7 +14,6 @@
   "dependencies": {
     "ace-css": "^1.1.0",
     "bss": "^1.6.2",
-    "dragula": "^3.7.2",
     "marked": "^0.6.3",
     "misbehave": "^0.3.0",
     "mithril": "^2.0.0-rc.6",
