@@ -6,6 +6,22 @@ a minimal, customizable, Markdown-powered webpage that utilizes responsive colum
 in functionality to other [startpages](http://startpages.github.io/), while
 allowing the user to customize its content *without* having to edit an HTML file.
 
+#### Building
+
+Get [Yarn](https://yarnpkg.com/en/).
+
+Install dependencies:
+```
+yarn
+```
+
+Build project:
+```
+yarn run build
+```
+
+Load `/dist` directory as Add-On in Debug Mode.
+
 #### Installation
 
 Visit [https://addons.mozilla.org/en-US/firefox/addon/colm/](https://addons.mozilla.org/en-US/firefox/addon/colm/) to install.

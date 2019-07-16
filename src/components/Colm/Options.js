@@ -34,6 +34,9 @@ const Options = ({ attrs: { state, actions } }) => {
         view: ({ attrs: { state, actions } }) =>
             m('div',
                 m('h1', 'Options'),
+                m('p', 'Need help? Found a bug? Read the docs / create an issue over at ',
+                    m('a', { href: 'https://github.com/kevinfiol/colm' }, 'Github.')
+                ),
 
                 m('h3', 'Autohide Menu'),
                 m(Checkbox, {
