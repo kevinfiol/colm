@@ -69,6 +69,11 @@ const Options = ({ attrs: { state, actions } }) => {
                 }),
 
                 m('h3', 'Custom CSS'),
+                m('p',
+                    'To modify column styles, utilize the ',
+                    m('code', '.column-container'),
+                    ' class.'
+                ),
                 m(Editor, {
                     editorContent: options.customCss,
                     oninput: c => options.customCss = c
