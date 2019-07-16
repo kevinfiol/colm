@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "colm",
+    "version": "2.0.1",
+    "description": "Replaces new tab with Markdown-powered columns",
+    "author": "kevinfiol",
+    "homepage_url": "https://kevinfiol.com",
+    "developer": {
+        "name": "kevinfiol",
+        "url": "https://kevinfiol.com"
+    },
+    "icons": {
+        "48": "icon.png"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "chrome_settings_overrides": {
+      "homepage": "index.html"
+    }
+}

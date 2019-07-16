@@ -1,11 +1,18 @@
 .width-100 { width: 100% }
 .height-100 { height: 100% }
 
+/** Animations **/
+@keyframes fade-in { from { opacity:0; } to { opacity:1; } }
+@keyframes fade-out { from { opacity:1; } to { opacity:0; } }
+.fade-in { animation: fade-in 0.1s; }
+.fade-out { animation: fade-out 0.06s; }
+
 /** Attributes **/
 .nowrap { white-space: nowrap; }
 .ellipsis { text-overflow: ellipsis; }
 .resizable { resize: both; overflow: auto; }
 .c-hand { cursor: pointer; }
+.c-grab { cursor: grab; }
 
 /** Grid **/
 .grid { display: grid; }
@@ -14,3 +21,6 @@
 .columns-4 { grid-template-columns: repeat(4, 1fr); }
 .columns-5 { grid-template-columns: repeat(5, 1fr); }
 .columns-6 { grid-template-columns: repeat(6, 1fr); }
+
+html, body { width: 100%; height: 100%; }
+body { background: black; color: white; margin: 0; }

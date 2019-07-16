@@ -5,6 +5,7 @@ import uglify from 'rollup-plugin-uglify';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
+import json from 'rollup-plugin-json';
 
 const isProd = process.env.PROD === 'true';
 const isDev = process.env.DEV === 'true';
@@ -17,6 +18,13 @@ const config = {
         sourcemap: isDev
     },
     plugins: [
+        // JSON
+        json({
+            exclude: ['node_modules/**'],
+            preferConst: true,
+            compact: true
+        }),
+
         // CSS
         postcss({
             extract: true,
@@ -27,6 +35,7 @@ const config = {
         nodeResolve(),
         commonjs(),
         buble({
+            objectAssign: 'Object.assign',
             transforms: { dangerousTaggedTemplateString: true }
         }),
 

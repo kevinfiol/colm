@@ -1,8 +1,8 @@
 import m from 'mithril';
 import b from 'bss';
 
-const StyledBtn =
-    'button.btn.btn-outline.mx1' +
+const StyledLink =
+    'a.btn.btn-outline.mx1' +
     b`
         transition all 0.2s ease
     `.$hover`
@@ -10,8 +10,8 @@ const StyledBtn =
     `
 ;
 
-const Btn = {
-    view: ({ attrs, children }) => m(StyledBtn, attrs, children)
+const BtnLink = {
+    view: ({ attrs, children }) => m(StyledLink, attrs, children)
 };
 
-export default Btn;
+export default BtnLink;
