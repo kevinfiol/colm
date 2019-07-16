@@ -19,7 +19,7 @@ const FileInput = ({ attrs: { onLoad } }) => {
     };
 
     return {
-        view: ({ attrs: { onLoad, dataType, checkValid } }) =>
+        view: ({ attrs: { dataType, checkValid } }) =>
             m(StyledInput, {
                 type: 'file',
                 oninput: ev => {

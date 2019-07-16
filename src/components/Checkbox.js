@@ -1,5 +1,4 @@
 import m from 'mithril';
-import b from 'bss';
 
 const Checkbox = {
     view: ({ attrs: { checked, id, onchange }, children }) =>
@@ -11,7 +10,8 @@ const Checkbox = {
                 type: 'checkbox',
                 onchange: ({ target }) => onchange(target.checked)
             }),
-           m('label.truncate.px1', { for: id }, children)
+
+            m('label.truncate.px1', { for: id }, children)
         )
 };
 

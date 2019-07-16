@@ -1,6 +1,5 @@
 import m from 'mithril';
 import b from 'bss';
-import Editor from '../Editor';
 import Sortable from 'sortablejs';
 
 const StyledContainer =

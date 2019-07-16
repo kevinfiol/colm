@@ -1,4 +1,3 @@
-import m from 'mithril';
 import { clone } from 'ramda';
 import Actions from './Actions';
 import NanoID from '../services/NanoID';

@@ -31,18 +31,6 @@ const Colm = {
                 m(PreviewPre, { x: state.previewX, y: state.previewY }, state.previewContent)
             ,
 
-            state.editMode &&
-                m('div',
-                    m(Notification,
-                        m('span.py4', 'Click and drag to reorder columns while in edit mode.'),
-
-                        state.temp.length < 10 &&
-                            m(Btn, { className: 'mt2', onclick: actions.addTempColumn }, 'Add Column')
-                        ,
-                    )
-                )
-            ,
-
             !state.editMode &&
                 m(ColumnContainer, {
                     width: state.options.width,
@@ -51,6 +39,18 @@ const Colm = {
                 },
                     state.columns.map(({ key, content }) =>
                         m(Column, { key }, Markdown.render(content))
+                    )
+                )
+            ,
+
+            state.editMode &&
+                m('div',
+                    m(Notification,
+                        m('span.py4', 'Click and drag to reorder columns while in edit mode.'),
+
+                        state.temp.length < 10 &&
+                            m(Btn, { className: 'mt2', onclick: actions.addTempColumn }, 'Add Column')
+                        ,
                     )
                 )
             ,
