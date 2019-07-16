@@ -9,7 +9,7 @@ const StyledCode =
         padding 1em
         overflow-x scroll
         background-color rgba(255, 255, 255, 0.2)
-        min-height 19em
+        min-height 25em
         width 100%
     `
 ;

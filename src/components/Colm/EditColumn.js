@@ -7,23 +7,18 @@ import Editor from '../Editor';
 const StyledColumn =
     'div.fade-in.draggable.border.rounded.c-grab.white.overflow-hidden.mx1.p2' +
     b`
-        height 10em
+        height 12em
         max-width 35em
     `
 ;
 
-const EditColumn = () => {
-    let content    = null;
-    let isEditing  = false;
-    let editorContent = '';
+const EditColumn = ({ attrs }) => {
+    let content       = attrs.content;
+    let isEditing     = false;
+    let editorContent = content;
 
     return {
-        oninit: ({ attrs }) => {
-            content = attrs.content;
-            editorContent = content;
-        },
-
-        view: ({ attrs: { index, saveColumn, deleteColumn } }) =>
+        view: ({ attrs: { index, saveColumn, deleteColumn, setPreviewX, setPreviewY, setShowPreview, setPreviewContent } }) =>
             isEditing
                 ?
                 m(Modal,
@@ -45,7 +40,22 @@ const EditColumn = () => {
                     }, 'Cancel')
                 )
                 :
-                m(StyledColumn, { 'data-index': index },
+                m(StyledColumn, {
+                    'data-index': index,
+                    onmouseleave: () => setShowPreview(false),
+                    onmouseover: ev => {
+                        if (content.trim()) {
+                            setPreviewX(`${ ev.pageX }px`);
+                            setPreviewY(`${ ev.pageY + 10 }px`);
+                            setPreviewContent(content);
+                            setShowPreview(true);
+                        }
+                    },
+                    onmousemove: ev => {
+                        setPreviewX(`${ ev.pageX }px`);
+                        setPreviewY(`${ ev.pageY + 10 }px`);
+                    }
+                },
                     m('div.flex.justify-between',
                         m('div.left.truncate',
                             m(Btn, { onclick: () => isEditing = true }, 'Edit')
@@ -56,7 +66,7 @@ const EditColumn = () => {
                         )
                     ),
 
-                    m('h3.py1.truncate.overflow-hidden', { style: { maxWidth: '8em' } }, content),
+                    m('h3.py1.truncate.overflow-hidden', { style: { maxWidth: '8em' } }, content)
                 )
             ,
     };

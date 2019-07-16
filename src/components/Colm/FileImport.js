@@ -7,6 +7,7 @@ import BrowserStorage from '../../services/BrowserStorage';
 
 const FileImport = ({ attrs: { state } }) => {
     let data = null;
+
     let url = URL.createObjectURL(
         new Blob([
             JSON.stringify({ columns: state.columns, options: state.options })

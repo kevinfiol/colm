@@ -9,34 +9,28 @@ import Checkbox from '../Checkbox';
 import FileImport from './FileImport';
 import LocalImages from './LocalImages';
 
-const Options = () => {
-    let options;
-    let saveChanges;
-    let cancelChanges;
+const Options = ({ attrs: { state, actions } }) => {
+    let options = {...state.options};
+
+    const saveChanges = () => {
+        actions.setWidth(options.width);
+        actions.setHeight(options.height);
+        actions.setBgColor(options.bgColor);
+        actions.setFontColor(options.fontColor);
+        actions.setCustomCss(options.customCss);
+        actions.setAutohideMenu(options.autohideMenu);
+        actions.setShowOptions(false);
+
+        // Document Changes
+        Document.setInnerText('#colm-custom-styles', options.customCss);
+
+        // Save To Storage
+        BrowserStorage.saveToStorage({ options });
+    };
+
+    const cancelChanges = () => actions.setShowOptions(false);
 
     return {
-        oninit: ({ attrs: { state, actions } }) => {
-            options = {...state.options};
-
-            saveChanges = () => {
-                actions.setWidth(options.width);
-                actions.setHeight(options.height);
-                actions.setBgColor(options.bgColor);
-                actions.setFontColor(options.fontColor);
-                actions.setCustomCss(options.customCss);
-                actions.setAutohideMenu(options.autohideMenu);
-                actions.setShowOptions(false);
-
-                // Document Changes
-                Document.setInnerText('#colm-custom-styles', options.customCss);
-
-                // Save To Storage
-                BrowserStorage.saveToStorage({ options });
-            };
-
-            cancelChanges = () => actions.setShowOptions(false);
-        },
-
         view: ({ attrs: { state, actions } }) =>
             m('div',
                 m('h1', 'Options'),

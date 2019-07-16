@@ -9,6 +9,10 @@ const state = {
     isLoaded: false,
     showOptions: false,
     editMode: false,
+    showPreview: false,
+    previewX: '0px',
+    previewY: '0px',
+    previewContent: '',
 
     columns: [],
     temp: [],

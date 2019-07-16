@@ -10,17 +10,15 @@ const StyledInput =
     `
 ;
 
-const FileInput = () => {
+const FileInput = ({ attrs: { onLoad } }) => {
     let io = new FileReader();
 
-    return {
-        oninit: ({ attrs: { onLoad } }) => {
-            io.onload = load => {
-                onLoad(load.target.result);
-                m.redraw();
-            };
-        },
+    io.onload = load => {
+        onLoad(load.target.result);
+        m.redraw();
+    };
 
+    return {
         view: ({ attrs: { onLoad, dataType, checkValid } }) =>
             m(StyledInput, {
                 type: 'file',

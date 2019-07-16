@@ -11,6 +11,22 @@ const Actions = (state, deps) => ({
         state.editMode = editMode;
     },
 
+    setPreviewX: previewX => {
+        state.previewX = previewX;
+    },
+
+    setPreviewY: previewY => {
+        state.previewY = previewY;
+    },
+
+    setPreviewContent: previewContent => {
+        state.previewContent = previewContent;
+    },
+
+    setShowPreview: showPreview => {
+        state.showPreview = showPreview;
+    },
+
     setColumns: columns => {
         state.columns = deps.clone(columns);
     },
@@ -52,7 +68,7 @@ const Actions = (state, deps) => ({
         state.options = deps.clone(deps.defaults.options);
         state.files = {};
 
-        Document.setInnerText('#colm-custom-styles', state.options.customCss);
+        deps.Document.setInnerText('#colm-custom-styles', state.options.customCss);
     },
     
     /**

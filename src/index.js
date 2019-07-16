@@ -10,6 +10,7 @@ import { state, actions } from './state';
 
 import Modal from './components/Modal';
 import Btn from './components/Btn';
+import PreviewPre from './components/PreviewPre';
 
 import Controls from './components/Colm/Controls';
 import Notification from './components/Colm/Notification';
@@ -25,6 +26,10 @@ const Colm = {
             style: { backgroundColor: state.options.bgColor }
         },
             m(Controls, { state, actions }),
+
+            state.showPreview &&
+                m(PreviewPre, { x: state.previewX, y: state.previewY }, state.previewContent)
+            ,
 
             state.editMode &&
                 m('div',
@@ -57,6 +62,10 @@ const Colm = {
                             key,
                             index,
                             content,
+                            setPreviewX: actions.setPreviewX,
+                            setPreviewY: actions.setPreviewY,
+                            setShowPreview: actions.setShowPreview,
+                            setPreviewContent: actions.setPreviewContent,
                             saveColumn: content => actions.editTempColumn(index, content),
                             deleteColumn: () => actions.deleteTempColumn(index)
                         })
@@ -96,9 +105,8 @@ const App = {
         ;
     },
 
-    view: ({ attrs: { state, actions } }) => {
-        return state.isLoaded && m(Colm, { state, actions });
-    }
+    view: ({ attrs: { state, actions } }) =>
+        state.isLoaded && m(Colm, { state, actions })
 };
 
 m.mount(document.getElementById('app'), {
