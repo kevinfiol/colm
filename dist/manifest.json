@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "colm",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "Replaces new tab with Markdown-powered columns",
     "author": "kevinfiol",
     "homepage_url": "https://kevinfiol.com",
