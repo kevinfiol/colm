@@ -14,7 +14,6 @@
     "bss": "^1.6.2",
     "codemirror": "^5.58.0",
     "marked": "^0.6.3",
-    "misbehave": "^0.3.0",
     "mithril": "^2.0.0-rc.6",
     "ramda": "^0.26.1",
     "sortablejs": "^1.10.0-rc3"

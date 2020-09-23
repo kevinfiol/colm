@@ -507,11 +507,6 @@ colors.css@^3.0.0:
   resolved "https://registry.yarnpkg.com/colors.css/-/colors.css-3.0.0.tgz#511cf42fb8a7199a8cbef49c88a4ea4f1d8f9efc"
   integrity sha1-URz0L7inGZqMvvSciKTqTx2Pnvw=
 
-combokeys@2.4.6:
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/combokeys/-/combokeys-2.4.6.tgz#a5c47599632af7a36d1d9c2f98518c95b253d83b"
-  integrity sha1-pcR1mWMq96NtHZwvmFGMlbJT2Ds=
-
 commander@~2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
@@ -1579,14 +1574,6 @@ minizlib@^1.2.1:
   integrity sha512-7+4oTUOWKg7AuL3vloEWekXY2/D20cevzsrNT2kGWm+39J9hGTCBv8VI5Pm5lXZ/o3/mdR4f8rflAPhnQb8mPA==
   dependencies:
     minipass "^2.2.1"
-
-misbehave@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/misbehave/-/misbehave-0.3.0.tgz#4e143e0af6228a516bfe6d098513c0a2af85c53c"
-  integrity sha1-ThQ+CvYiilFr/m0JhRPAoq+FxTw=
-  dependencies:
-    combokeys "2.4.6"
-    undo-manager "1.0.5"
 
 mithril@^2.0.0-rc.6:
   version "2.0.0-rc.6"
@@ -2801,11 +2788,6 @@ ultron@1.0.x:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.0.2.tgz#ace116ab557cd197386a4e88f4685378c8b2e4fa"
   integrity sha1-rOEWq1V80Zc4ak6I9GhTeMiy5Po=
-
-undo-manager@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/undo-manager/-/undo-manager-1.0.5.tgz#c348cf5bbd745d0d5163bf733d95f20ec0caa71c"
-  integrity sha1-w0jPW710XQ1RY79zPZXyDsDKpxw=
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
