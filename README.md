@@ -60,7 +60,7 @@ Examples:
 <pre class="code" data-lang="Markdown"><code>// Using a regular image URL
 ![](https://www.google.com/image.jpg)
 
-// Using a local file, with unique ID 'uq4r'
+// Using a local file, with unique ID 'PpDUkovcYw'
 ![](local_PpDUkovcYw)
 </code></pre>
 
