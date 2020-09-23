@@ -3,7 +3,6 @@
   "version": "2.1.0",
   "description": "Replaces new tab with Markdown-powered columns",
   "main": "src/index.js",
-  "repository": "git@github.com:kevinfiol/colm.git",
   "license": "MIT",
   "scripts": {
     "start": "rollup -c -w --environment DEV",
