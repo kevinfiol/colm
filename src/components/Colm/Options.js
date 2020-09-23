@@ -10,7 +10,7 @@ import FileImport from './FileImport';
 import LocalImages from './LocalImages';
 
 const Options = ({ attrs: { state, actions } }) => {
-    let options = {...state.options};
+    let options = { ...state.options };
 
     const saveChanges = () => {
         actions.setWidth(options.width);
@@ -79,6 +79,7 @@ const Options = ({ attrs: { state, actions } }) => {
                 ),
                 m(Editor, {
                     editorContent: options.customCss,
+                    syntax: 'css',
                     oninput: c => options.customCss = c
                 }),
 

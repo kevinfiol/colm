@@ -22,22 +22,28 @@ const EditColumn = ({ attrs }) => {
             isEditing
                 ?
                 m(Modal,
-                    m(Editor, { editorContent, oninput: input => editorContent = input }),
+                    m(Editor, {
+                        editorContent,
+                        syntax: 'markdown',
+                        oninput: input => editorContent = input
+                    }),
 
-                    m(Btn, {
-                        onclick: () => {
-                            content = editorContent;
-                            saveColumn(content);
-                            isEditing = false;
-                        }
-                    }, 'Save'),
+                    m('div.my2',
+                        m(Btn, {
+                            onclick: () => {
+                                content = editorContent;
+                                saveColumn(content);
+                                isEditing = false;
+                            }
+                        }, 'Save'),
 
-                    m(Btn, {
-                        onclick: () => {
-                            editorContent = content;
-                            isEditing = false;
-                        }
-                    }, 'Cancel')
+                        m(Btn, {
+                            onclick: () => {
+                                editorContent = content;
+                                isEditing = false;
+                            }
+                        }, 'Cancel')
+                    )
                 )
                 :
                 m(StyledColumn, {

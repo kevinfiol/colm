@@ -1,6 +1,8 @@
 import m from 'mithril';
 import b from 'bss';
-import misbehave from 'misbehave';
+import CodeMirror from 'CodeMirror';
+import markdown from 'CodeMirror/mode/markdown/markdown';
+import css from 'CodeMirror/mode/css/css';
 
 const StyledCode =
     'div.code' +
@@ -15,23 +17,22 @@ const StyledCode =
 ;
 
 const Editor = {
-    view: ({ attrs: { editorContent, oninput } }) =>
-        m('pre.overflow-auto',
-            m(StyledCode, {
-                contenteditable: 'true',
-                autocorrect: 'off',
-                autocapitalize: 'off',
-                spellcheck: 'false',
-                oncreate: ({ dom }) => new misbehave(dom, {
-                    oninput: input => {
-                        oninput(input);
-                        m.redraw();
-                    }
-                })
-            },
-                m.trust(editorContent)
-            )
-        )
+    view: ({ attrs: { editorContent, syntax, oninput } }) =>
+        m('div', {
+            oncreate: ({ dom }) => {
+                const cm = new CodeMirror(dom, {
+                    value: editorContent,
+                    mode: syntax,
+                    lineNumbers: true,
+                    theme: 'base16-dark'
+                });
+
+                cm.on('change', cm => {
+                    oninput(cm.getValue());
+                    m.redraw();
+                });
+            }
+        })
 };
 
 export default Editor;
