@@ -1,6 +1,6 @@
 {
   "name": "colm",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Replaces new tab with Markdown-powered columns",
   "main": "src/index.js",
   "license": "MIT",
