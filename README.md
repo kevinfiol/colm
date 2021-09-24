@@ -53,7 +53,7 @@ it is advised to only modify the styles of `column-container`.
 
 #### Local Images
 Local image files can be loaded via the `options` menu. Images must be a jpg/jpeg, png, or gif file, and must
-be under 1MB in size. When images are loaded, they are assigned a unique 4-character ID. To reference
+be under 1MB in size. When images are loaded, they are assigned a unique ID. To reference
 a local file in Markdown, prepend its unique ID with `local_`, and use this combination in place of a
 typical image URL. Local images are not exported when you export your settings to JSON.
 
