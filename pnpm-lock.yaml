@@ -1,0 +1,57 @@
+lockfileVersion: 5.3
+
+specifiers:
+  bss: ^1.6.2
+  codemirror: ^5.58.2
+  esbuild: 0.12.x
+  klona: ^2.0.4
+  marked: ^0.7.0
+  mithril: ^2.0.0-rc.6
+  sortablejs: ^1.10.0-rc3
+
+dependencies:
+  bss: 1.6.4
+  codemirror: 5.63.0
+  klona: 2.0.4
+  marked: 0.7.0
+  mithril: 2.0.4
+  sortablejs: 1.14.0
+
+devDependencies:
+  esbuild: 0.12.29
+
+packages:
+
+  /bss/1.6.4:
+    resolution: {integrity: sha512-+inXOlHY3Ln9+Zmxa4rHJVB32wbsceVeJhW9NuPs7vqprPEoMUdZNFZeNUxNFd+DSqsckDRcd50/lMZlgpK+uw==}
+    dev: false
+
+  /codemirror/5.63.0:
+    resolution: {integrity: sha512-KlLWRPggDg2rBD1Mx7/EqEhaBdy+ybBCVh/efgjBDsPpMeEu6MbTAJzIT4TuCzvmbTEgvKOGzVT6wdBTNusqrg==}
+    dev: false
+
+  /esbuild/0.12.29:
+    resolution: {integrity: sha512-w/XuoBCSwepyiZtIRsKsetiLDUVGPVw1E/R3VTFSecIy8UR7Cq3SOtwKHJMFoVqqVG36aGkzh4e8BvpO1Fdc7g==}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+
+  /klona/2.0.4:
+    resolution: {integrity: sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==}
+    engines: {node: '>= 8'}
+    dev: false
+
+  /marked/0.7.0:
+    resolution: {integrity: sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==}
+    engines: {node: '>=0.10.0'}
+    hasBin: true
+    dev: false
+
+  /mithril/2.0.4:
+    resolution: {integrity: sha512-mgw+DMZlhMS4PpprF6dl7ZoeZq5GGcAuWnrg5e12MvaGauc4jzWsDZtVGRCktsiQczOEUr2K5teKbE5k44RlOg==}
+    hasBin: true
+    dev: false
+
+  /sortablejs/1.14.0:
+    resolution: {integrity: sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==}
+    dev: false

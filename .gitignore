@@ -1,6 +1,4 @@
 node_modules
 dist/bundle.js
-dist/bundle.css
 *.map
-dist.zip
-colm.zip
+*.zip

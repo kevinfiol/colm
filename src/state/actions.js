@@ -28,11 +28,11 @@ const Actions = (state, deps) => ({
     },
 
     setColumns: columns => {
-        state.columns = deps.clone(columns);
+        state.columns = deps.klona(columns);
     },
 
     setTemp: temp => {
-        state.temp = deps.clone(temp);
+        state.temp = deps.klona(temp);
     },
 
     editTempColumn: (index, content) => {
@@ -52,8 +52,8 @@ const Actions = (state, deps) => ({
      * Batch State Changes
      */
     loadFromObject: obj => {
-        state.columns = deps.clone(obj.columns);
-        state.files = obj.files ? deps.clone(obj.files) : {};
+        state.columns = deps.klona(obj.columns);
+        state.files = obj.files ? deps.klona(obj.files) : {};
 
         state.options.autohideMenu = obj.options.autohideMenu;
         state.options.width = obj.options.width;
@@ -64,8 +64,8 @@ const Actions = (state, deps) => ({
     },
 
     setDefaults: () => {
-        state.columns = deps.clone(deps.defaults.columns);
-        state.options = deps.clone(deps.defaults.options);
+        state.columns = deps.klona(deps.defaults.columns);
+        state.options = deps.klona(deps.defaults.options);
         state.files = {};
 
         deps.Document.setInnerText('#colm-custom-styles', state.options.customCss);

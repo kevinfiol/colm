@@ -1,32 +1,26 @@
 {
   "name": "colm",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Replaces new tab with Markdown-powered columns",
   "main": "src/index.js",
   "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "start": "rollup -c -w --environment DEV",
-    "build": "rollup -c --environment PROD",
-    "test": "ospec"
+    "dev": "node ./scripts/dev.js",
+    "build": "node ./scripts/build.js"
   },
   "dependencies": {
-    "ace-css": "^1.1.0",
     "bss": "^1.6.2",
     "codemirror": "^5.58.2",
+    "klona": "^2.0.4",
     "marked": "^0.7.0",
     "mithril": "^2.0.0-rc.6",
-    "ramda": "^0.26.1",
     "sortablejs": "^1.10.0-rc3"
   },
   "devDependencies": {
-    "rollup": "^1.10.0",
-    "rollup-plugin-buble": "^0.19.6",
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-livereload": "^1.0.0",
-    "rollup-plugin-node-resolve": "^5.0.3",
-    "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-serve": "^1.0.2",
-    "rollup-plugin-uglify": "^6.0.2"
+    "esbuild": "0.12.x"
   }
 }

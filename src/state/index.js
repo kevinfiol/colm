@@ -1,5 +1,5 @@
-import { clone } from 'ramda';
-import Actions from './Actions';
+import { klona } from 'klona/json';
+import Actions from './actions';
 import NanoID from '../services/NanoID';
 import Document from '../services/Document';
 import defaults from '../defaults';
@@ -31,7 +31,7 @@ const state = {
 const deps = {
     NanoID: NanoID(11),
     Document,
-    clone,
+    klona,
     defaults
 };
 

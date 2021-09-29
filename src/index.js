@@ -1,8 +1,3 @@
-import 'ace-css/css/ace.min.css';
-import './styles/codemirror.css';
-import './styles/base16-dark.css';
-import './styles/main.css';
-
 import m from 'mithril';
 import Document from './services/Document';
 import BrowserStorage from './services/BrowserStorage';
