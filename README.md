@@ -1,5 +1,4 @@
-colm
-===
+# colm
 
 **colm** is a browser extension that replaces `about:newtab` with
 a minimal, customizable, Markdown-powered webpage that utilizes responsive columns. It aims to be similar
@@ -8,23 +7,23 @@ allowing the user to customize its content *without* having to edit an HTML file
 
 ![demo](/demo.gif)
 
-#### Building
+## Building
 
-Get [Yarn](https://yarnpkg.com/en/).
+This project uses [pnpm](https://pnpm.io/).
 
 Install dependencies:
 ```
-yarn
+pnpm install
 ```
 
 Build project:
 ```
-yarn run build
+pnpm run build
 ```
 
 Load `/dist` directory as Add-On in Debug Mode.
 
-#### Installation
+## Installation
 
 Visit [https://addons.mozilla.org/en-US/firefox/addon/colm/](https://addons.mozilla.org/en-US/firefox/addon/colm/) to install.
 This is a Web-Extension, and so requires Firefox 57 or greater.
@@ -35,23 +34,25 @@ please look [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsh
 
 Several options are available in the `options` menu:
 
-#### Dimensions and Background Styles
+## Usage
+
+### Dimensions and Background Styles
 You can modify the width and height of the columns container input boxes.
 The background color can be changed via a color picker.
 
-#### Font Options
+### Font Options
 Font color can be modified using a color picker.
 To change your font, you must
 add custom CSS (See: [font-family attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)).
 
-#### Custom CSS
+### Custom CSS
 A custom CSS editor is available via the `options` menu. You can change your font here, or apply any other global CSS rule. To modify styles for the columns container,
 use the `.column-container` class.
 
 Note: Modifying the CSS can potentially obscure the page controls. For this reason,
 it is advised to only modify the styles of `column-container`.
 
-#### Local Images
+### Local Images
 Local image files can be loaded via the `options` menu. Images must be a jpg/jpeg, png, or gif file, and must
 be under 1MB in size. When images are loaded, they are assigned a unique ID. To reference
 a local file in Markdown, prepend its unique ID with `local_`, and use this combination in place of a
@@ -66,7 +67,7 @@ Examples:
 ![](local_PpDUkovcYw)
 </code></pre>
 
-#### Import, Export, or Clear Settings
+### Import, Export, or Clear Settings
 You may export your configuration to a .json file, and import it at a later time if need be.
 This is useful if you want to keep a backup of your config, or if you want to use your config
 across multiple browsers. Local images are not exported.
