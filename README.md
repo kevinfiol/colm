@@ -5,7 +5,7 @@ a minimal, customizable, Markdown-powered webpage that utilizes responsive colum
 in functionality to other [startpages](http://startpages.github.io/), while
 allowing the user to customize its content *without* having to edit an HTML file.
 
-![demo](/demo.gif)
+![screenshot](/demo.png)
 
 ## Building
 
