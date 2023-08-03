@@ -16,7 +16,7 @@
     "bss": "^1.6.2",
     "codemirror": "^5.58.2",
     "klona": "^2.0.4",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "mithril": "^2.0.0-rc.6",
     "sortablejs": "^1.10.0-rc3"
   },
